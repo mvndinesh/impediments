@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block tit %}<title>Edit Item</title>{% endblock %}
+
+<!-- <h1>Hello World! Homepage</h1> -->
+
+{% block content %}
+
+	{% if item %}
+
+		Edit the item:  {{item.item}}
+		<br>
+		Is it Done : {{item.completed}}
+		<form class="form-inline my-2 my-lg-0" method="POST">
+	      {% csrf_token %}
+	      <input class="form-control mr-sm-2" type="search" placeholder= {{item.item}} 
+	      value = "{{ item.item }}" aria-label = "search" name="item">
+	      <input type="hidden" value="{{item.completed}}" name="completed">
+	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Edit To List</button>
+	    </form>
+	{% endif %}
+
+{%endblock%}

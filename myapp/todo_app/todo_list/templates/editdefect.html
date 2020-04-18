@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block tit %}<title>All Defects</title>{% endblock %}
+
+
+{% block content %}
+
+{% if edit %}
+
+<p class="text-justify">Please enter your impediment or showstopper to inform it to your manager or your superior.</p>
+
+<form class="form-inline my-2 my-lg-0" method="POST">
+	{% csrf_token %}
+ <div class="container">
+  	<div class="row">
+    	<div class="col-sm">
+
+    		<div class="input-group-prepend">
+    			<label for="fname">Originator : </label>  
+    			<br></br>
+    		</div>
+  			<input type="text" class="form-control" placeholder="Enter You Name" aria-label="Enter Your Name" maxlength = "20" minlength = "3" value={{edit.originator}} name="originator" required>
+
+  			<br></br>
+
+  			<div class="input-group-prepend">
+    			<label for="fname">Priority : </label>
+    			<br></br>
+    		</div>
+			<select id="priority" name="priority" value="{{edit.priority}}" required>
+                 
+	     <!--      <option value="Medium">Medium</option>
+			  <option value="Low">Low</option>
+			  <option value="High">High</option> -->
+
+              {% if edit.priority == "High" %}
+                <option value="High" selected>High</option>
+              {% else %} 
+                 <option value="High">High</option>
+              {%endif%}
+
+              {% if edit.priority == "Medium" %}
+                <option value="Medium" selected>Medium</option>
+              {% else %} 
+                 <option value="Medium">Medium</option>
+              {%endif%}
+
+              {% if edit.priority == "Low" %}
+                <option value="Low" selected>Low</option>
+              {% else %} 
+                 <option value="Low">Low</option>
+              {%endif%}
+
+
+
+			</select>
+
+			<br></br>
+
+    		<div class="input-group-prepend">
+    			<label for="fname">Issue Description : </label>
+    			<br></br>
+    		</div>
+
+         	<textarea style="width:300px; height:200px;" class="form-control" aria-label="With textarea" minlength = "10" maxlength = "300" name="issuename" value="{{edit.issuename}}" required>{{edit.issuename}}</textarea>
+     	
+ 			<br> </br>	
+    		<button type="submit" class="btn btn-primary">Submit</button>
+     	
+    	</div>
+
+    	  <div class="col-sm">
+
+         		<div class="input-group-prepend">
+      			<label for="fname">Todays Date : </label>
+      			<br></br>
+      	    </div>
+
+        		<input type="text" id="theDate" placeholder="{{datetoday}}" aria-label="{{datetoday}}" value="{{edit.createddate}}" name="createddate" readonly> 
+
+        		  <div class="input-group-prepend">
+        			<label for="fname">Additional Information : </label>
+        			<br></br>
+        	    </div>
+             	<textarea style="width:300px; height:100px;" class="form-control" aria-label="With textarea" minlength = "10" maxlength = "300" name="addinfo" value="{{edit.addinfo}}" required>{{edit.addinfo}}</textarea>
+
+             	<br></br>
+             	<div class="input-group-prepend">
+        			<label for="fname">Initial Selected Expected Date is :{{edit.expecteddate}} </label>
+        			<br></br>
+        	    </div>
+             	<!-- <label for="fname">{{edit.expecteddate}}</label>  -->
+        	    <input type="Date" id="expecdate" name ="expecteddate" required>
+
+              <br><br>
+              <div class="input-group-prepend">
+              <a href="{% url 'sendmaillid' edit.id %}">Send An Email </a>
+              <br></br>
+              </div>
+
+
+         </div>
+
+          <div class="col-sm">
+              <div class="input-group-prepend">
+                <label for="exampleInputEmail1">Originator Email</label>
+                <br></br>
+              </div>
+              <input type="email" style="width:300px; height:30px;" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value= "{{edit.oremailid}}"name="oremailid">
+             <small id="emailHelp" class="form-text text-muted">Verify your email address</small>
+
+
+
+            <div class="input-group-prepend">
+                <label for="fname">Status : </label>
+                <br></br>
+            </div>
+            <select id="status" name="status">
+              {% if edit.status == "In Progress"%}
+                <option value="In Progress" selected>In Progress</option>
+              {% else %}
+                <option value="In Progress">In Progress</option>
+              {% endif %}
+
+              {% if edit.status == "Done" %}
+                <option value="Done" selected>Done</option>
+              {% else %}
+                <option value="Done">Done</option>
+              {% endif %}
+              
+            </select>
+
+          </div>
+
+
+         
+     	
+      </div>
+
+</div>
+
+
+
+</form>
+
+
+
+
+
+
+{% endif %}
+  
+{% endblock %}
+

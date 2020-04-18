@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block tit %}<title>All Defects</title>{% endblock %}
+
+
+{% block content %}
+
+<!-- <h5 class="text-justify">  Please enter your impediment or showstopper to inform it to your manager or your superior.</h5> -->
+<br>
+<br>
+<form class="form-inline my-2 my-lg-0" method="POST">
+	{% csrf_token %}
+<div class="container">
+  	<div class="row">
+    	  <div class="col-sm">
+              <label">Imepdiment Number : {{edit.id}}</label>
+              <div class="input-group-prepend">
+                <label for="exampleInputEmail1">Org Email</label>
+                <br></br>
+              </div>
+              <input type="email" style="width:300px; height:30px;" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="ourimpediments@gmail.com" name="orgemailid" readonly></input>
+
+
+              <div class="input-group-prepend">
+                <label for="exampleInputEmail1">Email To</label>
+                <br></br>
+              </div>
+              <input type="email" style="width:300px; height:30px;" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="emailto">
+               
+            <!--   <textarea style="width:300px; height:35px;" class="form-control" aria-label="With textarea" minlength = "10" maxlength = "300" placeholder="Email Subject" name="issuename"></textarea> -->
+              <br></br> 
+              <textarea style="width:300px; height:60px;" class="form-control" aria-label="With textarea" minlength = "10" maxlength = "300" placeholder="Email CC" name="emailcc"></textarea>
+
+              <div class="input-group-prepend">
+                  <label for="fname">Additional Information : </label>
+                  <br></br>
+              </div>
+              <textarea style="width:300px; height:100px;" class="form-control" aria-label="With textarea" minlength = "10" maxlength = "300" name="addinfo" readonly>{{edit.addinfo}}</textarea>
+              <br></br>
+              <button type="submit" class="btn btn-primary">Submit</button>
+
+
+    	  </div>  
+        <div class="col-sm">
+                <br>
+                <textarea style="width:300px; height:35px;" class="form-control" aria-label="With textarea" minlength = "10" maxlength = "300" placeholder="Email Subject" name="emailsubject"></textarea>
+                <br></br>
+                <textarea align = "left" style="width:700px; height:500px;" class="form-control" aria-label="With textarea" minlength = "10" maxlength = "300" placeholder="Email Body" name="emailbody"></textarea>
+        </div>
+
+       
+
+
+
+
+    </div>
+<!--     <br>
+    <div class="row">
+              <br></br>
+              <textarea style="width:300px; height:35px;" class="form-control" aria-label="With textarea" minlength = "10" maxlength = "300" placeholder="Email Subject" name="issuename"></textarea>
+
+    </div>
+ -->
+
+
+</div>
+
+ 
+
+</form>
+
+
+
+
+
+  
+{% endblock %}
+

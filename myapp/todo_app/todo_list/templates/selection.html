@@ -1,0 +1,159 @@
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <!-- Bootstrap CSS-->
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+  <!-- Custom CSS-->
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+  <div class="navbar navbar-static-top navbar-dark bg-inverse">
+    <div class="container-fluid">
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header">
+        &#9776;
+      </button> -->
+      <a href="#" class="navbar-brand">Lets Manage</a>
+      <a href="{% url 'logout' %}" class="navbar-brand">Logout</a>
+    </div>
+  </div>
+
+  <section class="jumbotron text-xs-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Impediments</h1>
+      <p class="lead text-muted">Select the appropriate section and enter the required questions.</p>
+      <div>
+        <a href="{% url 'alldefects' %}" class="btn btn-info">All H1B Impediments</a>
+        <a href="{% url 'alldefects' %}" class="btn btn-info">All Project Impediments</a>
+        <a href="{% url 'alldefects' %}" class="btn btn-info">All GC Impediments</a>
+      </div>
+    </div>
+  </section>
+
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 33%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 100px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: left;
+  background-color: #f1f1f1;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+</style>
+</head> 
+<body>
+
+<!-- <h2>Responsive Column Cards</h2>
+<p>Resize the browser window to see the effect.</p> -->
+
+<div class="row">
+  <div class="column">
+              <div class="card" style="width: 18rem;">
+                <img src="/static/images/project.jpg" class="card-img-top">
+                <div class="card-body">
+                  <br>
+                  <h5 class="card-title">Enter Project Impediments</h5>
+                  <p class="card-text">Let your supervisor know regarding the impediments you are facing in the projects.</p>
+                  <a href= "{% url 'enterdefect' %}" class="btn btn-primary">Enter</a>
+                </div>
+              </div>
+  </div>
+
+  <div class="column">
+              <div class="card" style="width: 18rem;">
+                <img src="/static/images/h1b.jpg" class="card-img-top">
+                <div class="card-body">
+                  <br>
+                  <h5 class="card-title">Enter H1b Impediments</h5>
+                  <p class="card-text">Let your supervisor know reagrding the Visa/GC impediments </p>
+                  <br>
+                  <a href="#" class="btn btn-primary">Enter</a>
+                </div>
+              </div>
+  </div>
+  
+  <div class="column">
+              <div class="card" style="width: 18rem;">
+                <img src="/static/images/oi.jpg" class="card-img-top">
+                <div class="card-body">
+                  <br>
+                  <h5 class="card-title">All Other Issues</h5>
+                  <p class="card-text">Let your manager know regarding the other issues/complaints</p>
+                  <br>
+                  <a href="#" class="btn btn-primary">Enter</a>
+                </div>
+              </div>
+  </div>
+  
+
+</div>
+
+</body>
+
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="pull-xs-left">
+        <!-- <a href="#">About</a> -->
+         
+      </p>
+      <br>
+      <p>Coded by <a href="">Dinesh</a>.</p>
+    </div>
+  </footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

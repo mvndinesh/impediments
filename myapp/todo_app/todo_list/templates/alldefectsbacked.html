@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block tit %}<title>All Defects</title>{% endblock %}
+
+
+{% block content %}
+
+{% if all_items %}
+<br></br>
+
+
+
+
+<h4>Total Number of issues: {{all_items_count}}</h4>
+
+ 
+
+ <table class="table table-bordered">
+ 	<thead>
+	    <tr>
+	      <th scope="col">Number</th>
+	      <th align="center" scope="col">Issue</th>
+	      <th scope="col">Additional Info</th>
+	      <th scope="col">Expected Date</th>
+	      <th scope="col">Priority</th>
+	      <th scope="col">Originator</th>
+	      <th scope="col">Created Date</th>
+		</tr>
+   </thead>
+
+   <tbody>
+
+	{%for eachitem in all_items%}
+
+		{% if eachitem.priority == "High" %}
+		<tr class="table-danger">
+			<!-- <td> {{eachitem.item }}</td> -->
+			<td width = "1%"><center><a>{{eachitem.id }}</a></center></td>
+	        <td style="word-break:break-all;" align="left" width = "30%" ><left><a href="{% url 'editdefect' eachitem.id %}" >{{eachitem.issuename}}</a></left></td>
+	        <td style="word-break:break-all;" align="left" width = "30%" ><left><a>{{eachitem.addinfo}}</a></left></td>
+	        <td style="word-break:break-all;" align="left" width = "13%" ><left><a>{{eachitem.expecteddate}}</a></left></td>
+	        <td style="word-break:break-all;" align="left" width = "10%" ><center><a>{{eachitem.priority}}</a></center></td>
+	        <td width = "5%"><center><a>{{eachitem.originator}}</a></center></td>
+	        <td style="word-break:break-all;" align="left" width = "20%" ><center><a>{{eachitem.createddate}}</a></center></td>
+	     </tr>
+	     {% else %}
+	     <tr class="table-success">
+			<!-- <td> {{eachitem.item }}</td> -->
+			<td width = "1%"><center><a>{{eachitem.id }}</a></center></td>
+	        <td style="word-break:break-all;" align="left" width = "30%" ><left><a href="{% url 'editdefect' eachitem.id %}" >{{eachitem.issuename}}</a></left></td>
+	        <td style="word-break:break-all;" align="left" width = "30%" ><left><a>{{eachitem.addinfo}}</a></left></td>
+	        <td style="word-break:break-all;" align="left" width = "13%" ><left><a>{{eachitem.expecteddate}}</a></left></td>
+	        <td style="word-break:break-all;" align="left" width = "10%" ><center><a>{{eachitem.priority}}</a></center></td>
+	        <td width = "5%"><center><a>{{eachitem.originator}}</a></center></td>
+	        <td style="word-break:break-all;" align="left" width = "20%" ><center><a>{{eachitem.createddate}}</a></center></td>
+	     </tr>
+
+	     {% endif %}
+	{%endfor%}
+	</tbody>
+
+</table>
+{% endif %}
+
+{% endblock %}
+
+
+

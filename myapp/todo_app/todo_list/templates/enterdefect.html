@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% block tit %}<title>All Defects</title>{% endblock %}
+
+
+{% block content %}
+
+<h5 class="text-justify">  Please enter your impediment or showstopper to inform it to your manager or your superior.</h5>
+<br>
+<form class="form-inline my-2 my-lg-0" method="POST">
+	{% csrf_token %}
+<div class="container">
+  	<div class="row">
+    	<div class="col-sm">
+
+    		<div class="input-group-prepend">
+    			<label for="fname">Originator : </label>  
+    			<br></br>
+    		</div>
+  			<input type="text" class="form-control" placeholder="Enter You Name" aria-label="Enter Your Name" maxlength = "20" minlength = "3" value = "{{originator}}" name="originator" readonly>
+
+  			<br></br>
+
+  			<div class="input-group-prepend">
+    			<label for="fname">Priority : </label>
+    			<br></br>
+    		</div>
+			<select id="priority" name="priority">
+			  <option value="Medium">Medium</option>
+			  <option value="Low">Low</option>
+			  <option value="High">High</option>
+			</select>
+
+			<br></br>
+
+    		<div class="input-group-prepend">
+    			<label for="fname">Issue Description : </label>
+    			<br></br>
+    		</div>
+
+         	<textarea style="width:300px; height:200px;" class="form-control" aria-label="With textarea" minlength = "10" maxlength = "300" name="issuename"></textarea>
+     	
+ 			<br> </br>	
+    		<button type="submit" class="btn btn-primary">Submit</button>
+     	
+    	</div>
+
+    	<div class="col-sm">
+
+       		<div class="input-group-prepend">
+    			<label for="fname">Todays Date : </label>
+    			<br></br>
+    	    </div>
+
+    		<input type="text" id="theDate" placeholder="{{datetoday}}" aria-label="{{datetoday}}" value="{{datetoday}}" name="createddate" readonly> 
+
+    		<div class="input-group-prepend">
+    			<label for="fname">Additional Information : </label>
+    			<br></br>
+    	    </div>
+         	<textarea style="width:300px; height:100px;" class="form-control" aria-label="With textarea" minlength = "10" maxlength = "300" name="addinfo" ></textarea>
+
+         	<br></br>
+         	<div class="input-group-prepend">
+    			<label for="fname">Expected Date To Be Completed : </label>
+    			<br></br>
+    	    </div>
+         	 
+    	    <input type="Date" id="expecdate" name ="expecteddate">
+
+
+         </div>
+
+         <div class="col-sm">
+              <div class="input-group-prepend">
+                <label for="exampleInputEmail1">Originator Email</label>
+                <br></br>
+              </div>
+              <input type="email" style="width:300px; height:30px;" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value = "{{orgemailid}}" name="oremailid" readonly>
+             <small id="emailHelp" class="form-text text-muted">Verify your email address</small>
+
+
+
+            <div class="input-group-prepend">
+                <label for="fname">Status : </label>
+                <br></br>
+            </div>
+            <select id="status" name="status">
+              <option value="In Progress">In Progress</option>
+              <option value="Done">Done</option>
+            </select>
+
+
+
+
+        </div>
+
+         
+     	
+    </div>
+
+</div>
+
+<!-- 	<div class="row">
+
+		<div class="row">
+  			<br></br>
+  			<br></br>
+			<button type="submit" class="btn btn-primary">Submit</button>
+
+		</div>
+	</div> -->
+
+</form>
+
+
+
+<!-- <form class="form-inline my-2 my-lg-0" method="POST">
+	{% csrf_token %}
+<div class="container">
+  	<div class="row">
+    	<div class="col-sm">
+
+    		<div class="input-group-prepend">
+    			<span class="input-group-text" id="basic-addon1">@</span>
+  			</div>
+  			<input type="text" class="form-control" placeholder="Username" aria-label="Username" maxlength = "20" minlength = "3" aria-describedby="basic-addon1" name="originator">
+
+    	  	<div class="input-group-prepend">
+    			<span class="input-group-text">With textarea</span>
+  		  	</div>
+         	<textarea class="form-control" aria-label="With textarea" minlength = "10" maxlength = "300" name="issuename" ></textarea>
+    		<button type="submit" class="btn btn-primary">Submit</button>
+     	
+    	</div>
+
+
+
+	</div>
+
+</form> -->
+
+
+
+  
+{% endblock %}
+
